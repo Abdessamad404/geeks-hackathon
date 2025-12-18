@@ -267,10 +267,4 @@ This project was created for the Geeks Hackathon 2024.
 
 ---
 
-## 📸 Screenshots
-
-_Screenshots to be added after deployment_
-
----
-
 **Built with ❤️ for vintage enthusiasts**
