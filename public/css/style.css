@@ -76,11 +76,20 @@ header .container {
 }
 
 .logo {
-  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 20px;
   position: relative;
 }
 
-.logo h1 {
+.logo-image {
+  width: 80px; /* Changed from 60px */
+  height: 80px; /* Changed from 60px */
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.logo-text h1 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 3px;
@@ -91,6 +100,14 @@ header .container {
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 169, 97, 0.5);
 }
 
+.tagline {
+  font-size: 0.75rem;
+  font-style: italic;
+  letter-spacing: 3px;
+  color: var(--vintage-tan);
+  font-weight: 300;
+  text-transform: lowercase;
+}
 .tagline {
   font-size: 0.75rem;
   font-style: italic;
