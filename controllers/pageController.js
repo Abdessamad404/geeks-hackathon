@@ -7,10 +7,15 @@ exports.getHome = (req, res) => {
   });
 };
 
-// Render products page with filters
+// Get all products with filters
 exports.getProducts = async (req, res) => {
   try {
-    // Build query from URL params
+    // Redirect to login if not authenticated
+    if (!req.session.user) {
+      return res.redirect("/login");
+    }
+
+    // Build query based on filters
     let query = {};
 
     if (req.query.search) {
@@ -25,10 +30,8 @@ exports.getProducts = async (req, res) => {
       query.color = req.query.color;
     }
 
-    // Get products from database
     const products = await Product.find(query).sort({ createdAt: -1 });
 
-    // Render page with data
     res.render("products", {
       title: "Products",
       products: products,
