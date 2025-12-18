@@ -32,6 +32,15 @@
 
           <!-- Right: User Menu -->
           <div class="nav-right">
+            <!-- Cart Icon -->
+            <a
+              href="#"
+              class="cart-icon"
+              onclick="showCartMessage(); return false;"
+            >
+              🛒
+              <span class="cart-count">0</span>
+            </a>
             {{#if user}}
               <span class="user-greeting">Hi, {{user.name}}</span>
               <a href="/logout" class="logout-btn">Logout</a>
