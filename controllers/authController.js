@@ -34,7 +34,8 @@ exports.postLogin = async (req, res) => {
     await user.save();
 
     // Create magic link
-    const magicLink = `http://localhost:3000/auth/verify?token=${magicToken}&email=${email}`;
+    const baseURL = process.env.BASE_URL || "http://localhost:3000";
+    const magicLink = `${baseURL}/auth/verify?token=${magicToken}&email=${email}`;
 
     // In real app, send email here
     // For demo, we'll show the link on screen
