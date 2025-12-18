@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="auth-container">
+    <h2>Login to Vintage Vibe</h2>
+    <p>Enter your email and we'll send you a magic link to login.</p>
+
+    {{#if message}}
+      <div class="message {{message}}">
+        {{#if (eq message "error")}}
+          ❌ Something went wrong. Please try again.
+        {{/if}}
+        {{#if (eq message "invalid")}}
+          ❌ Invalid or expired link. Please request a new one.
+        {{/if}}
+      </div>
+    {{/if}}
+
+    <form action="/login" method="POST" class="auth-form">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Send Magic Link</button>
+    </form>
+
+    <p class="auth-note">No password needed! We'll email you a secure login
+      link.</p>
+  </div>
+</div>
