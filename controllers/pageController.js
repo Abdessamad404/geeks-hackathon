@@ -60,3 +60,32 @@ exports.getProductDetail = async (req, res) => {
     res.status(500).send("Server error");
   }
 };
+
+// Render about page
+exports.getAbout = (req, res) => {
+  res.render("about", {
+    title: "About Us",
+  });
+};
+
+// Render contact page
+exports.getContact = (req, res) => {
+  res.render("contact", {
+    title: "Contact Us",
+    message: req.query.message || null,
+  });
+};
+
+// Handle contact form submission
+exports.postContact = async (req, res) => {
+  try {
+    // In real app, send email or save to database
+    console.log("Contact form submission:", req.body);
+
+    // Redirect with success message
+    res.redirect("/contact?message=success");
+  } catch (error) {
+    console.error("Contact form error:", error);
+    res.redirect("/contact?message=error");
+  }
+};

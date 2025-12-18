@@ -11,4 +11,13 @@ router.get("/products", pageController.getProducts);
 // Product detail page
 router.get("/products/:id", pageController.getProductDetail);
 
+// About page
+router.get("/about", pageController.getAbout);
+
+// Contact page
+router.get("/contact", pageController.getContact);
+
+// Handle contact form
+router.post("/contact", pageController.postContact);
+
 module.exports = router;

@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="page-content">
+    <h1>Contact Us</h1>
+
+    <div class="contact-intro">
+      <p>Have questions about our vintage collection? Want to sell your retro
+        items? We'd love to hear from you!</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-form-section">
+        <h2>Send us a Message</h2>
+
+        {{#if message}}
+          <div class="message success">
+            ✅ Thank you! We'll get back to you soon.
+          </div>
+        {{/if}}
+
+        <form action="/contact" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-info-section">
+        <h2>Get in Touch</h2>
+
+        <div class="contact-info">
+          <div class="info-item">
+            <strong>📧 Email</strong>
+            <p>contact@vintagevibe.com</p>
+          </div>
+
+          <div class="info-item">
+            <strong>📍 Location</strong>
+            <p>Casablanca, Morocco</p>
+          </div>
+
+          <div class="info-item">
+            <strong>⏰ Hours</strong>
+            <p>Monday - Saturday: 9AM - 6PM</p>
+            <p>Sunday: Closed</p>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <h3>Follow Us</h3>
+          <p>Stay updated with our latest finds and special offers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
