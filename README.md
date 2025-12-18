@@ -1,6 +1,6 @@
 # 🏛️ Vintage Vibe
 
-**Retro. Rediscovered.**
+**Retro. Revisited.**
 
 A vintage e-commerce marketplace specializing in authentic retro collectibles from the 1920s-1990s. Built for the Geeks Hackathon 2024.
 
