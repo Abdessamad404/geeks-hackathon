@@ -8,30 +8,38 @@
   <body>
     <header>
       <div class="container">
-        <div class="logo">
-          <img
-            src="/images/logo.jpg"
-            alt="Vintage Vibe Logo"
-            class="logo-image"
-          />
-          <div class="logo-text">
-            <h1>Vintage Vibe</h1>
-            <p class="tagline">Retro. Rediscovered.</p>
+        <div class="header-content">
+          <!-- Left: Logo -->
+          <div class="logo">
+            <img
+              src="/images/logo.jpg?v=1"
+              alt="Vintage Vibe Logo"
+              class="logo-image"
+            />
+            <div class="logo-text">
+              <h1>Vintage Vibe</h1>
+              <p class="tagline">Retro. Revisited.</p>
+            </div>
+          </div>
+
+          <!-- Center: Navigation -->
+          <nav class="nav-center">
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+          </nav>
+
+          <!-- Right: User Menu -->
+          <div class="nav-right">
+            {{#if user}}
+              <span class="user-greeting">Hi, {{user.name}}</span>
+              <a href="/logout" class="logout-btn">Logout</a>
+            {{else}}
+              <a href="/login" class="login-btn">Login</a>
+            {{/if}}
           </div>
         </div>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          {{#if user}}
-            <span style="color: white; margin-left: 20px;">👤
-              {{user.email}}</span>
-            <a href="/logout">Logout</a>
-          {{else}}
-            <a href="/login">Login</a>
-          {{/if}}
-        </nav>
       </div>
     </header>
 

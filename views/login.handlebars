@@ -1,7 +1,7 @@
 <div class="container">
   <div class="auth-container">
     <h2>Login to Vintage Vibe</h2>
-    <p>Enter your email and we'll send you a magic link to login.</p>
+    <p>Enter your details and we'll send you a magic link to login.</p>
 
     {{#if message}}
       <div class="message {{message}}">
@@ -15,6 +15,17 @@
     {{/if}}
 
     <form action="/login" method="POST" class="auth-form">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="John Doe"
+          required
+        />
+      </div>
+
       <div class="form-group">
         <label for="email">Email Address</label>
         <input

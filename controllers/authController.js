@@ -12,7 +12,7 @@ exports.getLogin = (req, res) => {
 // Handle login - send magic link
 exports.postLogin = async (req, res) => {
   try {
-    const { email } = req.body;
+    const { name, email } = req.body; // Add name here
 
     // Generate random token
     const magicToken = crypto.randomBytes(32).toString("hex");
@@ -22,7 +22,10 @@ exports.postLogin = async (req, res) => {
     let user = await User.findOne({ email });
 
     if (!user) {
-      user = new User({ email });
+      user = new User({ name, email }); // Add name here
+    } else {
+      // Update name if user exists
+      user.name = name;
     }
 
     // Save token
@@ -67,9 +70,10 @@ exports.verifyMagicLink = async (req, res) => {
     user.lastLogin = new Date();
     await user.save();
 
-    // Create session
+    // Create session with name
     req.session.user = {
       id: user._id,
+      name: user.name, // Add name here
       email: user.email,
     };
 
