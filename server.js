@@ -1,17 +1,20 @@
 const express = require("express");
-import { helpers } from "./node_modules/handlebars/types/index.d";
-import { equals } from "./node_modules/sift/src/utils";
 const connectDB = require("./config/database");
 const app = express();
 const productRoutes = require("./routes/productRoutes");
 const { engine } = require("express-handlebars");
+const pageRoutes = require("./routes/pageRoutes");
 
-// Setup Handlebars template engine with custom helpers 
+// Setup Handlebars template engine with custom helpers
 app.engine(
   "handlebars",
   engine({
     helpers: {
       eq: (a, b) => a === b,
+    },
+    runtimeOptions: {
+      allowProtoPropertiesByDefault: true,
+      allowProtoMethodsByDefault: true,
     },
   })
 );
@@ -28,10 +31,8 @@ app.use(express.json());
 // API Routes
 app.use("/api", productRoutes);
 
-// Basic route (like Route::get in Laravel)
-app.get("/", (req, res) => {
-  res.json({ message: "Hello from Express!" });
-});
+// Page Routes (must come AFTER API routes)
+app.use("/", pageRoutes);
 
 // Start server
 const PORT = 3000;
