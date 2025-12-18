@@ -40,6 +40,7 @@
     {{#if products.length}}
         <div class="products-grid">
             {{#each products}}
+            <a href="/products/{{this._id}}" style="text-decoration: none; color: inherit;">
                 <div class="product-card">
                     <img src="{{this.image}}" alt="{{this.name}}" class="product-image">
                     <div class="product-info">
@@ -59,6 +60,7 @@
                         </div>
                     </div>
                 </div>
+            </a>
             {{/each}}
         </div>
     {{else}}

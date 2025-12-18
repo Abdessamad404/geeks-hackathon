@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="product-detail">
+    <div class="product-detail-image">
+      <img src="{{product.image}}" alt="{{product.name}}" />
+    </div>
+
+    <div class="product-detail-info">
+      <h1>{{product.name}}</h1>
+
+      <div class="product-badges">
+        <span class="badge">{{product.category}}</span>
+        <span class="badge">{{product.condition}}</span>
+        {{#if product.year}}
+          <span class="badge">{{product.year}}</span>
+        {{/if}}
+      </div>
+
+      <p class="product-description">{{product.description}}</p>
+
+      <div class="product-specs">
+        <div class="spec-item">
+          <strong>Category:</strong>
+          {{product.category}}
+        </div>
+        <div class="spec-item">
+          <strong>Color:</strong>
+          {{product.color}}
+        </div>
+        <div class="spec-item">
+          <strong>Condition:</strong>
+          {{product.condition}}
+        </div>
+        {{#if product.year}}
+          <div class="spec-item">
+            <strong>Year:</strong>
+            {{product.year}}
+          </div>
+        {{/if}}
+      </div>
+
+      <div class="product-price">
+        <span class="price">${{product.price}}</span>
+      </div>
+
+      <div class="product-actions">
+        <a href="/products" class="btn btn-secondary">← Back to Products</a>
+      </div>
+    </div>
+  </div>
+</div>

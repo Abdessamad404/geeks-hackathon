@@ -41,3 +41,22 @@ exports.getProducts = async (req, res) => {
     res.status(500).send("Server error");
   }
 };
+
+// Render single product detail page
+exports.getProductDetail = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
+
+    res.render("product-detail", {
+      title: product.name,
+      product: product,
+    });
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    res.status(500).send("Server error");
+  }
+};
